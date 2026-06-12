@@ -16,9 +16,9 @@ without being executed.
 
 ## Requirements
 
-- Python 3.11 or newer
+- Python 3.10 through 3.13
 - An OpenAI API key
-- The packages listed in `requirements.txt`
+- The pinned packages listed in `pyproject.toml`
 
 ## Setup
 
@@ -26,7 +26,14 @@ Create and activate a virtual environment, then install dependencies:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install --upgrade pip setuptools wheel
+.\.venv\Scripts\python.exe -m pip install -e .
+```
+
+For development tools such as `black`, install the `dev` extra:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
 ```
 
 Set your API key in the shell:
